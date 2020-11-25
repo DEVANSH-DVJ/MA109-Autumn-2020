@@ -26,8 +26,7 @@
                 \item 5 (iii) - Monotonic Bounded sequences are convergent
                 \item 7 - Proof using $\epsilon$ - $n_0$ definition
                 \item 9 - Relation between product and convergence
-                \item 11 - Conditions for exchanging product and limits
-                \item 13 (iii) - Checking continuity of a function
+                \item 11 - Conditions for exchanging product and limits (Discussed in lecture)
             \end{itemize}
     \end{itemize}
 \end{frame}
@@ -114,17 +113,6 @@
 	Let $\delta = \min\{\delta_1,\;\delta_2\}.$ Then, whenever $0 < |x - c| < \delta,$ we have that:
 	$|f(x)g(x)| = |f(x)g(x) - lf(x) + lf(x)| \le |f(x)||(g(x) - l)| + |l||f(x)| < |f(x)|\epsilon + |l||f(x)| = |f(x)|(\epsilon + |l|) < \epsilon_1(\epsilon + |l|)= \epsilon.$\\
 	Thus, we have it that $0 < |x - c| < \delta \implies |f(x)g(x) - 0| < \epsilon.$ \hfill $\blacksquare$\\
-\end{frame}
-
-\begin{frame}{Tutorial Sheet 1}
-	13. (iii) The function can be rewritten as:
-	$f(x)=\left\{\begin{array}{ccl}{x} & {\text { if }} & {1 \leq x<2} \\ {1} & {\text { if }} & {x=2} \\ {\sqrt{6-x}} & {\text { if }} & {2<x \leq 3}\end{array}\right.$\\
-	We claim that the function is continuous on $[1, 2) \cup (2, 3]$ and discontinuous at $2.$\\
-	Given $x \in [1, 2)$ and any sequence $(x_n)$ in the domain such that $x_n \to x,$ there must exist $n \in n_0$ such that $x_n \in [1, 2) \quad \forall n \ge n_0.$ Thus, $f(x_n) = x_n \quad \forall n \ge n_0.$ It can now be easily shown that $f(x_n) \to x = f(x).$ (We have essentially used the continuity of the function $x \mapsto x.$) Thus, $f$ is continuous on $[1, 2).$\\
-	Similarly, we can argue that $f$ is continuous on $(2, 3].$ Again, this will follow from the fact that the function $x\mapsto \sqrt{6-x}$ is continuous on its domain.\\~\\
-	Now, we show that $f$ is discontinuous at $2.$ Consider the sequence $x_n := 2 - 1/n.$ It is clear that $x_n \to 2.$\\
-	Observe that $1 \le x_n < 2.$ Thus, $f(x_n) = 2-1/n.$\\
-	This gives us that $f(x_n) \to 2 \neq f(2).$ \hfill $\blacksquare$ 
 \end{frame}
 
 \begin{frame}{References}
