@@ -39,7 +39,7 @@
 	\uncover<6->{$n = (1 + h_n)^n > 1 + nh_n + \dbinom{n}{2}h_n^2$}\uncover<7->{$> \dbinom{n}{2}h_n^2 = \dfrac{n(n-1)}{2}h_n^2.$}\\~\\
 	\uncover<8->{Thus, $h_n < \sqrt{\dfrac{2}{n-1}} \quad \forall n > 2.$}\\~\\
 	\uncover<9->{Using Sandwich Theorem, we get that $\displaystyle\lim_{n\to \infty}h_n = 0$ which gives us that $\displaystyle\lim_{n\to \infty}n^{1/n} = 1.$ }\\~\\
-	\uncover<10->{Where did we use that $h_n \ge 0?$}
+	\uncover<10->{You may use AM-GM on $(n-1)$ 1s and two $\sqrt{n}$ to get upper bound for $n^{1/n}$. }
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
@@ -62,7 +62,7 @@
 	\uncover<6->{By principle of mathematical induction, we have proven the claim. \hfill $\blacksquare$ }\\~\\
 	\uncover<7->{Claim 2. $a_n < a_{n+1} \quad \forall n \in \mathbb{N}.$ }\\
 	\uncover<8->{\emph{Proof.} $a_{n+1} - a_n = 3 - \dfrac{a_n}{2} = \dfrac{6 - a_n}{2} > 0 \implies a_{n+1} > a_n.$ \hfill $\blacksquare$ }\\~\\
-	\uncover<9->{Thus, $(a_n)$ is a monotonically increasing sequence that is bounded above. Therefore, it must converge. Using the same method as earlier gives this limit to be $6.$ }
+	\uncover<9->{Thus, $(a_n)$ is a monotonically increasing sequence that is bounded above. Therefore, it must converge. Use $\displaystyle\lim_{n\to \infty}a_{n+1} = \lim_{n\to \infty}a_n = L$ and then solve for $L$. }
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
