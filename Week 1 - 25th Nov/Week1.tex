@@ -1,4 +1,4 @@
-\documentclass[handout, aspectratio=169]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \mode<presentation>{}
 \usepackage[utf8]{inputenc}
 \newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
@@ -32,58 +32,58 @@
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
-	2. (iv) $\displaystyle\lim_{n\to \infty}(n)^{1/n}.$\\~\\
-	\uncover<2->{Define $h_n := n^{1/n} - 1.$}\\
-	\uncover<3->{Then, $h_n \ge 0 \quad \forall n \in \mathbb{N}.$ } \uncover<4->{(Why?)}\\
-	\uncover<5->{Observe the following for $n > 2:$ }\\~\\
-	\uncover<6->{$n = (1 + h_n)^n > 1 + nh_n + \dbinom{n}{2}h_n^2$}\uncover<7->{$> \dbinom{n}{2}h_n^2 = \dfrac{n(n-1)}{2}h_n^2.$}\\~\\
-	\uncover<8->{Thus, $h_n < \sqrt{\dfrac{2}{n-1}} \quad \forall n > 2.$}\\~\\
-	\uncover<9->{Using Sandwich Theorem, we get that $\displaystyle\lim_{n\to \infty}h_n = 0$ which gives us that $\displaystyle\lim_{n\to \infty}n^{1/n} = 1.$ }\\~\\
-	\uncover<10->{You may use AM-GM on $(n-1)$ 1s and two $\sqrt{n}$ to get upper bound for $n^{1/n}$. }
+	2. (iv) $\displaystyle\lim_{n\to \infty}(n)^{1/n}.$ \\~\\
+	Define $h_n := n^{1/n} - 1.$ \\
+	Then, $h_n \ge 0 \quad \forall n \in \mathbb{N}.$ (Why?) \\
+	Observe the following for $n > 2:$ \\~\\
+	$n = (1 + h_n)^n > 1 + nh_n + \dbinom{n}{2}h_n^2 > \dbinom{n}{2}h_n^2 = \dfrac{n(n-1)}{2}h_n^2.$ \\~\\
+	Thus, $h_n < \sqrt{\dfrac{2}{n-1}} \quad \forall n > 2.$ \\~\\
+	Using Sandwich Theorem, we get that $\displaystyle\lim_{n\to \infty}h_n = 0$ which gives us that $\displaystyle\lim_{n\to \infty}n^{1/n} = 1.$ \\~\\
+	You may use AM-GM on $(n-1)$ 1s and two $\sqrt{n}$ to get upper bound for $n^{1/n}$.
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
-    3. (ii) To show: $\left\{(-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right)\right\}_{n \ge 1}$ is \emph{not} convergent.\\~\\
-    \uncover<2->{We will use the following two results: }\uncover<3->{(a) Sum of convergent sequences is convergent. }\uncover<4->{(b) The sequence $\{(-1)^n\}_{n\ge1}$ is not convergent.}\\
-    \uncover<5->{We now proceed as follows:}\\
-    \uncover<6->{$a_n := (-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right) = \dfrac{(-1)^n}{2} - \dfrac{(-1)^n}{n}.$}\\~\\
-    \uncover<7->{It is easy to show that $b_n := \dfrac{(-1)^n}{n}$ is convergent. (Its absolute value will behave the same way as $1/n.$)}\\
-    \uncover<8->{Now, for the sake of contradiction, let us assume that $(a_n)$ converges. Then, by (a), we have it that $c_n := a_n + b_n = \dfrac{(-1)^n}{2}$ must be convergent.}\\
-    \uncover<9->{However, $(c_n)$ converging is equivalent to $\{(-1)^n\}_{n\ge1}$ converging.} \uncover<10->{(Why?)}\\
-    \uncover<10->{However, by (b), we know that the above is false. Thus, we have arrived at a contradiction.}
+    3. (ii) To show: $\left\{(-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right)\right\}_{n \ge 1}$ is \emph{not} convergent. \\~\\
+    We will use the following two results: (a) Sum of convergent sequences is convergent. (b) The sequence $\{(-1)^n\}_{n\ge1}$ is not convergent. \\
+    We now proceed as follows: \\
+    $a_n := (-1)^n\left(\dfrac{1}{2}-\dfrac{1}{n}\right) = \dfrac{(-1)^n}{2} - \dfrac{(-1)^n}{n}.$ \\~\\
+    It is easy to show that $b_n := \dfrac{(-1)^n}{n}$ is convergent. (Its absolute value will behave the same way as $1/n.$) \\
+    Now, for the sake of contradiction, let us assume that $(a_n)$ converges. Then, by (a), we have it that $c_n := a_n + b_n = \dfrac{(-1)^n}{2}$ must be convergent. \\
+    However, $(c_n)$ converging is equivalent to $\{(-1)^n\}_{n\ge1}$ converging. (Why?) \\
+    However, by (b), we know that the above is false. Thus, we have arrived at a contradiction.
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
-	5. (iii) $a_1 = 2,\;a_{n+1} = 3 + \dfrac{a_n}{2} \quad \forall n \ge 1.$\\~\\
-	\uncover<2->{Claim 1. $a_n < 6 \quad n \in \mathbb{N}.$ }\\
-	\uncover<3->{\emph{Proof.}  We shall prove this via induction. The base case $n = 1$ is immediate as $2 < 6.$}\\
-	\uncover<4->{Assume that it holds for $n = k.$ }\\
-	\uncover<5->{$a_{k+1} = 3 + \dfrac{a_n}{2} < 3 + \dfrac{6}{2} = 6.$ }\\
-	\uncover<6->{By principle of mathematical induction, we have proven the claim. \hfill $\blacksquare$ }\\~\\
-	\uncover<7->{Claim 2. $a_n < a_{n+1} \quad \forall n \in \mathbb{N}.$ }\\
-	\uncover<8->{\emph{Proof.} $a_{n+1} - a_n = 3 - \dfrac{a_n}{2} = \dfrac{6 - a_n}{2} > 0 \implies a_{n+1} > a_n.$ \hfill $\blacksquare$ }\\~\\
-	\uncover<9->{Thus, $(a_n)$ is a monotonically increasing sequence that is bounded above. Therefore, it must converge. Use $\displaystyle\lim_{n\to \infty}a_{n+1} = \lim_{n\to \infty}a_n = L$ and then solve for $L$. }
+	5. (iii) $a_1 = 2,\;a_{n+1} = 3 + \dfrac{a_n}{2} \quad \forall n \ge 1.$ \\~\\
+	Claim 1. $a_n < 6 \quad n \in \mathbb{N}.$ \\
+	\emph{Proof.}  We shall prove this via induction. The base case $n = 1$ is immediate as $2 < 6$. \\
+	Assume that it holds for $n = k.$ \\
+	$a_{k+1} = 3 + \dfrac{a_n}{2} < 3 + \dfrac{6}{2} = 6.$ \\
+	By principle of mathematical induction, we have proven the claim. \hfill $\blacksquare$ \\~\\
+	Claim 2. $a_n < a_{n+1} \quad \forall n \in \mathbb{N}.$ \\
+	\emph{Proof.} $a_{n+1} - a_n = 3 - \dfrac{a_n}{2} = \dfrac{6 - a_n}{2} > 0 \implies a_{n+1} > a_n.$ \hfill $\blacksquare$ \\~\\
+	Thus, $(a_n)$ is a monotonically increasing sequence that is bounded above. Therefore, it must converge. Use $\displaystyle\lim_{n\to \infty}a_{n+1} = \lim_{n\to \infty}a_n = L$ and then solve for $L$.
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
     7. If $\displaystyle\lim_{n\to \infty}a_n = L \neq 0,$ show that there exists $n_0 \in \mathbb{N}$ such that \\
     \hspace{10em} $|a_n| \ge \dfrac{|L|}{2} \quad \text{ for all } n \ge n_0.$ \\
-    \uncover<2->{Let us choose $\epsilon = \dfrac{|L|}{2}.$} \uncover<3->{(Why is this a valid choice of $\epsilon?$)}\\
-    \uncover<4->{By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$}
+    Let us choose $\epsilon = \dfrac{|L|}{2}.$ Why is this a valid choice of $\epsilon?$) \\
+    By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$
     \begin{align*}
-        \uncover<5->{&|a_n - L| < \epsilon & \forall n \ge n_0}\\
-        \uncover<6->{\implies& ||a_n| - |L|| < \epsilon & \forall n \ge n_0}\\
-        \uncover<7->{\implies& -\epsilon < |a_n| - |L| < \epsilon & \forall n \ge n_0}\\
-        \uncover<8->{\implies& |L| - \epsilon < |a_n|  & \forall n \ge n_0}\\
-        \uncover<9->{\implies& \dfrac{|L|}{2} < |a_n|  & \forall n \ge n_0}
+        &|a_n - L| < \epsilon & \forall n \ge n_0 \\
+        \implies& ||a_n| - |L|| < \epsilon & \forall n \ge n_0 \\
+        \implies& -\epsilon < |a_n| - |L| < \epsilon & \forall n \ge n_0 \\
+        \implies& |L| - \epsilon < |a_n|  & \forall n \ge n_0 \\
+        \implies& \dfrac{|L|}{2} < |a_n|  & \forall n \ge n_0
     \end{align*}
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
     9. (i) $\{a_nb_n\}_{n\ge1}$ is convergent, if $\{a_n\}_{n\ge1}$ is convergent.\\
     \phantom{9.} (ii) $\{a_nb_n\}_{n\ge1}$ is convergent, if $\{a_n\}_{n\ge1}$ is convergent and $\{b_n\}_{n\ge1}$ is bounded.\\~\\
-    \uncover<2->{Both are {\color[rgb]{1, 0, 0} false.}}\\
-    \uncover<3->{The sequences, $a_n := 1\quad \forall n \in \mathbb{N}$ and $b_n := (-1)^n \quad \forall n \in \mathbb{N}$ act as a counterexample for both the statements.}
+    Both are {\color[rgb]{1, 0, 0} false.}\\
+    The sequences, $a_n := 1\quad \forall n \in \mathbb{N}$ and $b_n := (-1)^n \quad \forall n \in \mathbb{N}$ act as a counterexample for both the statements.
 \end{frame}
 
 \begin{frame}{Tutorial Sheet 1}
