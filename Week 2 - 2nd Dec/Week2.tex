@@ -1,0 +1,144 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 109 : Calculus-I\\ D1 T4, Tutorial 2}
+\author{Devansh Jain}
+\date[02-12-2020]{2nd December 2020}
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Questions to be Discussed}
+    \begin{itemize}
+        \item Sheet 1
+            \begin{itemize}
+                \item 7 - Proof using $\epsilon$ - $n_0$ definition (Optional, Discussed last time)
+                \item 10 - Proof of Even-odd convergence (Optional, Talked about last time)
+                \item 13 (ii) - Check Continuity of a function
+                \item 15 - Check differentiability of a function
+                \item 18 - Evaluate derivative of Multiplicative Cauchy functional equation
+            \end{itemize}
+        \item Sheet 2
+            \begin{itemize}
+                \item 3 - Intermediate Value Property (IVP) and Rolle's Theorem
+                \item 5 - Mean Value Theorem (MVT)
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+    7. If $\displaystyle\lim_{n\to \infty}a_n = L \neq 0,$ show that there exists $n_0 \in \mathbb{N}$ such that \\
+    \hspace{10em} $|a_n| \ge \dfrac{|L|}{2} \quad \text{ for all } n \ge n_0.$ \\
+    Let us choose $\epsilon = \dfrac{|L|}{2}.$ Why is this a valid choice of $\epsilon?$) \\
+    By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$
+    \begin{align*}
+        &|a_n - L| < \epsilon & \forall n \ge n_0 \\
+        \implies& ||a_n| - |L|| < \epsilon & \forall n \ge n_0 \\
+        \implies& -\epsilon < |a_n| - |L| < \epsilon & \forall n \ge n_0 \\
+        \implies& |L| - \epsilon < |a_n|  & \forall n \ge n_0 \\
+        \implies& \dfrac{|L|}{2} < |a_n|  & \forall n \ge n_0
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	10. To show:\\
+	$\{a_n\}_{n \ge 1}$ is convergent $\iff$ $\{a_{2n}\}_{n \ge 1}$ and $\{a_{2n+1}\}_{n \ge 1}$ converge to the same limit. \\~\\
+	\emph{Proof.} $(\implies)$ Let $b_n := a_{2n}$ and $c_n := a_{2n+1}.$ We are given that $\displaystyle\lim_{n\to \infty}a_n = L.$ We must show that $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}c_n.$ \\
+	Let $\epsilon > 0$ be given. By hypothesis, there exists $n_0 \in \mathbb{N}$ such that $|a_n - L| < \epsilon$ for $n \ge n_0.$ \\
+	Note that $2n > n$ and $2n + 1 > n$ for all $n \in \mathbb{N}.$ Thus, we have that \\
+	$|b_{n} - L| < \epsilon$ and $|c_n - L| < \epsilon$ for all $n \ge n_0.$ \\
+	Thus, $\displaystyle\lim_{n\to \infty}b_n = \lim_{n\to \infty}c_n = L.$ \hfill $\blacksquare$ 
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	$(\impliedby)$ Let $(b_n)$ and $(c_n)$ be as defined before. We are given that $\displaystyle\lim_{n\to \infty}b_n = \displaystyle\lim_{n\to \infty}c_n = L.$ We must show that $(a_n)$ converges.\\
+	Let $\epsilon > 0$ be given. By hypothesis, there exists $n_1, \; n_2 \in \mathbb{N}$ such that \\
+	$|b_n - L| < \epsilon$ for all $n \ge n_1$ \hfill (1) \\
+	 and $|c_n - L| < \epsilon$ for all $n \ge n_2.$ \hfill (2) \\
+	Choose $n_0 = \max\{2n_1,\;2n_2+1\}.$ \\
+	Let $n \ge n_0$ be even. Then, $n \ge 2n_1$ or $n/2 \ge n_1$ and $a_n = b_{n/2}.$ By (1), we have it that $|a_n - L| < \epsilon.$ \\
+	Similarly, let $n \ge n_0$ be odd. Then, $n \ge 2n_2 + 1$ or $(n-1)/2 \ge n_2$ and $a_n = c_{(n-1)/2}.$ By (2), we have it that $|a_n - L| < \epsilon.$ \\
+	Thus, we have shown that $|a_n - L| < \epsilon$ whenever $n \ge n_0.$ This is precisely what it means for $(a_n)$ to converge to $L.$ \hfill $\blacksquare$
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	13. (ii) The function is continuous everywhere.\\
+	\emph{Proof.} For $x \neq 0,$ it simply follows from the fact that product and composition of continuous functions is continuous.\\
+	To show continuity at $x = 0:$\\
+	Let $(x_n)$ be any sequence of real numbers such that $x_n \to 0.$ We must show that $f(x_n) \to 0.$\\
+	Let $\epsilon > 0$ be given.\\
+	Observe that $|f(x_n) - 0| = \left|x_n\sin\left(\dfrac{1}{x_n}\right)\right| \le |x_n|.$\\
+	Now, we shall use the fact $x_n \to 0.$ By this hypothesis, there must exist $n_1 \in \mathbb{N}$ such that $|x_n| = |x_n - 0| < \epsilon \quad \forall n \ge n_1.$\\
+	Choosing $n_0 = n_1,$ we have it that $|f(x_n) - 0| \le |x_n| < \epsilon \quad \forall n \ge n_0.$ \hfill $\blacksquare$
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	15. For $x \neq 0$, it simply follows from the fact that product and composition of differentiable functions is differentiable. \\
+	To show differentiable at $x = 0$ and evaluating $f'(0)$ \\
+	$f'(0) = \displaystyle\lim_{h\to 0}\dfrac{f(0+h) - f(0)}{h} = \displaystyle\lim_{h\to 0}\dfrac{h^2 \sin(1/h)}{h} = \displaystyle\lim_{h\to 0}h\sin(1/h)$ \\~\\
+	$|f'(0)| \le \displaystyle\lim_{h\to 0} |h| = 0 \implies f'(0) = 0$ \\~\\
+	 We can compute $f'(x) = 2x\sin(1/x) - \cos(1/x)$ for $x \neq 0$ and $f'(0) = 0$. \\
+	$f'$ is not continuous as limit at $x = 0$ is not defined (Why?). \\
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	18. Given: $f(x + y) = f(x)f(y)$ for all $x, y \in \mathbb{R}.$ \hfill (1)\\
+	Let $x = y = 0.$ This gives us that $f(0) = \left(f(0)\right)^2.$\\
+	Thus, $f(0) = 0$ or $f(0) = 1.$\\~\\
+	Case 1. $f(0) = 0.$\\
+	Substitute $y = 0$ in (1). Thus, $f(x) = f(0)f(x) = 0.$\\
+	Therefore, $f$ is identically $0$ which means it's differentiable everywhere with derivative $0.$ \\
+	Verify that $f'(c) = f'(0)f(c)$ does hold for all $x \in \mathbb{R}.$ (We did not need to use the fact that $f$ is differentiable at $0,$ it followed from definition.)\\~\\
+	Case 2. $f(0) = 1.$\\
+	As $f$ is differentiable at $0,$ we know that:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(0+h) - f(0)}{h} = f'(0) \implies \displaystyle\lim_{h\to 0}\dfrac{f(h) - 1}{h} = f'(0).$ \hfill (2)\\
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 1}
+	Now, let us show that $f$ is differentiable everywhere.\\
+	Let $c \in \mathbb{R}.$ We must show that the following limit exists:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(c + h) - f(c)}{h}$\\~\\
+	Using (1), we can write the above expression as:\\
+	$\displaystyle\lim_{h\to 0}\dfrac{f(c)f(h) - f(c)}{h} = \lim_{h\to 0}\dfrac{f(c)(f(h) - 1)}{h} = f(c)\cdot\lim_{h\to 0}\dfrac{f(h) - 1}{h}.$\\~\\
+	By (2), we know that the above limit exists. Thus, we have it that $f$ is differentiable at $c$ for every $c \in \mathbb{R}.$ Moreover, $f'(c) = f'(0)f(c).$\\~\\
+	\textbf{(Optional)} We have gotten that the derivative of $f$ is a scalar multiple of $f.$ Use this to conclude.	
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 2}
+	3. Part 1. We will first show the existence of such an $x_0 \in (a, b).$\\
+	\emph{Proof.} $I := [a, b]$ is an interval and $f$ is continuous. Thus, $f$ has the intermediate value property on $I.$ Thus, the range $J := f(I)$ must be an interval. As $f(a)$ and $f(b)$ are of different signs, $0$ lies between them. As $f(a), f(b) \in J$ and $J$ is an interval, we have it that $0 \in J = f(I).$
+	Thus, $0 = f(x_0)$ for some $x_0 \in I = (a, b).$ \hfill $\blacksquare$\\~\\
+	Part 2. Now we will show the uniqueness of $x_0.$ Assume that there exists $x_1 \in (a, b)$ such that $f(x_1) = 0.$ We may assume that $x_0 < x_1.$\\
+	Now, we know the following:\\
+	(i) $f$ is continuous on $[x_0, x_1],$\\
+	(ii) $f$ is differentiable on $(x_0, x_1),$ and\\
+	(iii) $f(x_0) = f(x_1).$\\
+	Thus, by Rolle's Theorem, there exists $x_2 \in (x_0, x_1)$ such that $f'(x_2) = 0.$ But this contradicts the hypothesis that $f'(x) \neq 0$ for all $x \in (a, b).$ \hfill $\blacksquare$\\
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 2}
+	5. To prove that $|\sin a - \sin b| \le |a - b|$ for all $a, b \in \mathbb{R}.$\\
+	Case 1. $a = b.$ Trivial.\\
+	Case 2. $a \neq b.$ Without loss of generality, we can assume that $a < b.$\\
+	As $f(x) := \sin(x)$ is continuous and differentiable on $\mathbb{R},$ there exists $c \in (a, b)$ such that $f'(c) = \dfrac{f(b) - f(a)}{b - a}.$ \hfill (By MVT)\\~\\
+	Also, we know that $|f'(c)| = |\cos c| \le 1.$\\~\\
+	Thus, we have it that $\left|\dfrac{f(b) - f(a)}{b - a}\right| \le 1.$\\~\\
+	This is equivalent to what we wanted to prove. \hfill $\blacksquare$
+\end{frame}
+
+\begin{frame}{References}
+    Lecture Slides by Prof. Ravi Raghunathan for MA 109 (Autumn 2020) \\
+    Tutorial slides prepared by Aryaman Maithani for MA 105 (Autumn 2019) \\
+    Solutions to tutorial problems for MA 105 (Autumn 2019) \\
+\end{frame}
+
+\end{document}
