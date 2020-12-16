@@ -1,0 +1,147 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 109 : Calculus-I\\ D1 T4, Tutorial 4}
+\author{Devansh Jain}
+\date[16-12-2020]{16th December 2020}
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Questions to be Discussed}
+    \begin{itemize}
+        \item Sheet 4
+            \begin{itemize}
+                \item 2 (a), (b) -
+                \item 3 (ii), (iv) - 
+                \item 4 (b) (i), (ii) - 
+                \item 6 - 
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	2. (a) Let $P = \{x_0, x_1, \ldots, x_n\}$ be any partition of $[a, b].$\\
+	For $i = 1, 2, \ldots, n,$ we have
+	\[M_i(f) = \sup_{x \in [x_{i-1}, x_i]}f(x) \ge 0.\]
+	We have used that the supremum of a set of non-negative real numbers is nonnegative. (Why?)\\
+	Thus, $U(P, f) \ge 0.$ As $f$ is given to be Riemann integrable on $[a, b],$ there exists a sequence $(P_n)$ of partitions of $[a, b]$ such that $U(P_n, f) \to \displaystyle\int_{a}^{b} f(x) dx .$ But $U(P_n, f) \ge 0$ for all $n.$ (Shown above)\\
+	Thus, $\displaystyle\int_{a}^{b} f(x) dx = \lim_{n\to \infty}U(P_n, f) \ge 0.$\\
+	Note that here we have used the fact that the limit of a sequence of nonnegative real numbers, if it exists, is nonnegative.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	To prove the next part, let us prove the contrapositive. That is, if $f(x) \neq 0$ for some $x \in [a, b],$ then $\displaystyle\int_{a}^{b} f(x) dx \neq 0.$\\~\\
+	%
+	Suppose $c \in [a, b]$ is the number such that $f(c) \neq 0.$ As $f(x) \ge 0$ for all $x \in [a, b],$ we have it that $f(c) > 0.$ Let $\epsilon := f(c).$\\
+	%Let us assume that $c$ is an interior point 
+	As $f$ is continuous, there is a $\delta > 0$ such that if $x \in [a, b]$ and $|x - c| < \delta,$ then $|f(x) - f(c)| < \epsilon/2$ which implies that $\epsilon/2 < f(x).$\\
+	Now, let us take the partition $P := \{x_0, x_1, x_2, x_3\}$ with $x_0 = a,\; x_1 = c-\delta,\;x_2 = c+\delta$ and $x_3 = b.$ If it is the case that $x_1 < x_0,$ then discard $x_1.$ If it is the case that $x_2 > x_3,$ discard $x_2.$ Relabel if required.\\
+	Now, there exists $x_i \in P$ such that $\displaystyle\inf_{x \in [{x_{i-1}, x_i}]}f(x) \ge \epsilon/2 > 0.$\\
+	Thus, $L(P, f) > 0.$ As $f$ is Riemann integrable, $\displaystyle\int_{a}^{b} f(x) dx = \sup\{L(P, f): P \text{ is a partition of } [a, b]\} > 0$ as we have found a partition that has a strictly positive lower sum.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	2. (b) Let $a = 0, b = 2$ and $f:[a, b] \to \mathbb{R}$ be defined as
+	\[f(x) = \left\{\begin{array}[h]{c l}
+		0 & ; x \neq 1 \\
+		1 & ; x = 1
+	\end{array}
+	\right.\]
+	Show that $f$ is actually Riemann integrable on $[0, 2]$ with the integral equal to $0.$
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	3. (ii) Note that \\
+	\[S_n = \sum_{i=1}^{n}\dfrac{n}{i^2 + n^2} = \sum_{i=1}^{n}\dfrac{1}{\left(\frac{i}{n}\right)^2 + 1}\left(\frac{i}{n} - \frac{i-1}{n}\right) .\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := \tan^{-1}x.$ Then, we have that $f'(x) = \frac{1}{x^2 + 1}.$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = R(P_n, f').$ Since $||P_n|| = 1/n \to 0,$ it follows that
+	\[R(P_n, f') \to \int_{0}^{1} \dfrac{1}{x^2 + 1} dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = \dfrac{\pi}{4}.\]
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	3. (iv) Note that \\
+	\[S_n = \dfrac{1}{n}\sum_{i=1}^{n}\cos\left(\dfrac{i\pi}{n}\right) = \sum_{i=1}^{n}\cos\left(\dfrac{i\pi}{n}\right)\left(\frac{i}{n} - \frac{i-1}{n}\right) .\]
+	Define $f:[0, 1] \to \mathbb{R}$ by $f(x) := \frac{1}{\pi}\sin(\pi x).$ Then, we have that $f'(x) = \cos(\pi x).$\\
+	As $f'$ is continuous and bounded, it is (Riemann) integrable. \\
+	For $n \in \mathbb{N},$ let $P_n := \{0, 1/n, \ldots, n/n\}$ and $t_i := i/n$ for $i = 1, 2, \ldots, n.$\\
+	Then, $S_n = R(P_n, f').$ Since $||P_n|| = 1/n \to 0,$ it follows that
+	\[R(P_n, f') \to \int_{0}^{1} \cos(\pi x) dx = \int_{0}^{1} f'(x) dx. \]
+	By the Fundamental Theorem of Calculus (Part 2), we have it that
+	\[\lim_{n\to \infty}S_n = \int_{0}^{1} f'(x) dx = f(1) - f(0) = 0.\]
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	4. (b) Let $u$ and $v$ be differentiable functions defined on appropriate domains.\\
+	Let $g$ be a continuous function. Define $G(x) := \displaystyle\int_{a}^{x} g(t) dt.$ Then $G'(x) = g(x),$ by Fundamental Theorem of Calculus (Part 1). Note that
+	\[\int_{u(x)}^{v(x)} g(t) dt = \int_{a}^{v(x)} g(t) dt - \int_{a}^{u(x)} g(t) dt = G(v(x)) - G(u(x)).\]
+	Thus, by the Chain Rule, one has
+	\[\dfrac{d}{dx}\int_{u(x)}^{v(x)} g(t) dt = G'(v(x))v'(x) - G'(u(x))u'(x) = g(v(x))v'(x) - g(u(x))u'(x).\]
+	We can now easily solve the question.
+\end{frame}
+	
+\begin{frame}{Tutorial Sheet 4}
+	(i)\\
+	Given, $F(x) = \displaystyle\int_{1}^{2x} \cos(t^2) dt $
+	\begin{align*}
+		\therefore \frac{dF}{dx} &= \cos\left((2x)^2\right)(2x)' - \cos(1)(1)' \\
+		&= 2\cos(4x^2).
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	(ii)\\
+	Given, $F(x) = \displaystyle\int_{0}^{x^2} \cos(t) dt $
+	\begin{align*}
+		\therefore \frac{dF}{dx} &= \cos\left(x^2\right)(x^2)' - \cos(0)(0)'\\
+		& = 2x\cos(x^2).
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 4}
+	6. 
+	\begin{align*}
+		g(x) &= \dfrac{1}{\lambda}\int_{0}^{x} f(t)\sin \lambda(x - t) dt\\
+		&= \dfrac{1}{\lambda}\int_{0}^{x} f(t) \left(\sin \lambda x\cos \lambda t - \cos \lambda x \sin \lambda t\right) dt\\
+		&= \frac{1}{\lambda}\sin\lambda x\int_{0}^{x} f(t)\cos \lambda t dt - \frac{1}{\lambda}\cos \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+	\end{align*}
+	Now, we can differentiate $g$ using product rule and Fundamental Theorem of Calculus (Part 1).
+	\begin{align*}
+	\therefore g'(x) %&= \cos\lambda x\int_{0}^{x} f(t)\cos \lambda t dt + \frac{1}{\lambda}f(x)\sin\lambda x \cos \lambda x dt + \sin \lambda x \int_{0}^{x} f(t)\sin \lambda t dt - \frac{1}{\lambda}f(x)\cos \lambda x \sin \lambda \\
+	&= \cos\lambda x\int_{0}^{x} f(t)\cos \lambda t dt + \sin \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+	\end{align*}
+\end{frame}
+		
+\begin{frame}{Tutorial Sheet 4}
+	It is easy to verify that both $g(0)$ and $g'(0)$ are 0.\\
+	We can differentiate $g'$ in a similar way and get,
+	\begin{align*}
+		g''(x) &= -\lambda\sin\lambda x\int_{0}^{x} f(x)\cos \lambda t dt + f(x)\cos^2\lambda x + \lambda \cos \lambda x \int_{0}^{x} f(t)\sin \lambda t dt \\
+		& + f(x)\sin^2 \lambda x\\
+		&= f(x) - \lambda^2\left(\dfrac{1}{\lambda}\int_{0}^{x} f(t) \left(\sin \lambda x\cos \lambda t - \cos \lambda x \sin \lambda t\right) dt\right)\\
+		&= f(x) - \lambda^2g(x)\\
+		\implies & g''(x) + \lambda^2g(x) = f(x) & \blacksquare
+	\end{align*}
+\end{frame}
+
+\begin{frame}{References}
+    Lecture Slides by Prof. Ravi Raghunathan for MA 109 (Autumn 2020) \\
+    Tutorial slides prepared by Aryaman Maithani for MA 105 (Autumn 2019) \\
+    Solutions to tutorial problems for MA 105 (Autumn 2019) \\
+\end{frame}
+
+\end{document}
