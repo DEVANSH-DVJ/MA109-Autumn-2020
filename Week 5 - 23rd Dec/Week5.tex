@@ -1,0 +1,115 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 109 : Calculus-I\\ D1 T4, Tutorial 5}
+\author{Devansh Jain}
+\date[23-12-2020]{23rd December 2020}
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Questions to be Discussed}
+    \center\textbf{Start the Recording!} \\~\\
+    \begin{itemize}
+        \item Sheet 5
+            \begin{itemize}
+                \item 2 (ii), (iii) - Contours and Level sets
+                \item 4 - Continuity of operations on f(x), g(y)
+                \item 6 (ii) - Partial derivatives
+                \item 8 - Partial derivatives again
+                \item 10 - Directional derivatives
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	2. (i) Given any $c$ from the options, the level curve is the line $x - y = c$ in the $XY$ plane, that is, the set of points $\{(x,\;y) \in \mathbb{R}^2 : x - y = c\}$ in $\mathbb{R}^2.$ \\
+	The contour line for that $c$ is the line in $\mathbb{R}^3$ which consists of the set of points $\{(x,\;y,\;z)\in\mathbb{R}^3 : x - y = c,\;z = c\}.$ That is, it is the contour line just shifted parallel-y in the $z-$direction. \\~\\
+	(ii) For $c < 0,$ the contour lines and level curves are empty sets. \\
+	For $c = 0,$ the level curve is just the point $(0,\;0)\in \mathbb{R}^2$ and the counter line is $(0,\;0,\;0)\in \mathbb{R}^3.$ \\
+	For $c > 0,$ the level curve $L$ is the circle $\{(x,\;y)\in\mathbb{R}^2:x^2 + y^2 = c\}$ and the contour line is the ``same curve, just shifted $c$ units upwards'' in $z-$direction. More precisely, the contour line is the set $L \times \{c\}.$ \\~\\
+	(iii) You can work this out similarly. \\
+	(You should get a right hyperbola with $x = 0$ and $y = 0$ as asymptotes for $c \ne 0$) \\
+\end{frame}
+	
+\begin{frame}{Tutorial Sheet 5}
+	Note: It is technically not correct to say that the contour lines are just the ``level curves shifted upwards'' because the two curves are not lying in the same space. More precisely, $\mathbb{R}^2 \not\subset \mathbb{R}^3.$ However, we do have a natural ``embedding'' of $\mathbb{R}^2$ into $\mathbb{R}^3$ which is what we were referring to.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	(4) (i), (ii), (iii), (iv) \\
+	Let $(x_0,\;y_0)$ be any point in $\mathbb{R}^2.$ We show that the function is continuous at this point. \\
+	Let $(x_n,\;y_n)$ be any sequence in $\mathbb{R}^2$ such that $(x_n,\;y_n) \to (x_0,\;y_0).$ This gives us that $x_n \to x_0$ and $y_n \to y_0.$ \hfill (Why?) \\
+	Hence, $f(x_n) \to f(x_0)$ and $g(y_n) \to g(y_0).$ (Definition of continuity of real functions.) \\
+	Now, we can use properties of sum and difference of real sequences to get our answers. \\~\\
+	For (iii), use the fact that $\max\{a,\;b\} = \frac{a + b + |a - b|}{2}$ and that modulus is a continuous function. Similar considerations apply for (iv).
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	I purposefully left the proof for you. There are several ways to write and I don't want to influence on your practice. \\
+	You all know how the quiz went and some of you might have realized the lack of practice of writing proofs. \\
+	This is a question you can write properly for practice and I will help improve. \\
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	6. (ii) Let $f:\mathbb{R}^2 \to \mathbb{R}$ denote the function given. \\
+	Then, 
+	\begin{align*}
+		f_x(0,\;0) &= \displaystyle\lim_{h\to 0}\frac{f(0+h,\;0) - f(0,\;0)}{h} \\
+		&= \displaystyle\lim_{h\to 0}\left(\frac{\sin^2(h)}{h|h|}\right)
+	\end{align*}
+	The above limit does not exist. \hfill (Why?)
+	(Hint: Take a strictly positive sequence and a strictly negative sequence, both of which converge to 0.) \\
+	It can be verified that $f_y(0,\;0)$ also does not exist in a similar manner.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	8. The continuity of $f$ is immediate. It is extremely similar to what we've seen many times by now. \\
+	Let us show that the partial derivatives don't exist. \\
+	The partial derivative of $f$ at $(0,\;0)$ with respect to the first variable $(x)$ is given by
+	\[\lim_{h\to 0}\frac{f(0 + h,\; 0) - f(0,\;0)}{h} = \lim_{h\to 0}\sin\left(\frac{1}{h}\right),\]
+	which we know does not exist. \\
+	Similar considerations apply for the other partial derivative.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	10. The continuity of $f$ at $(0, 0)$ is easy to show using the $\epsilon-\delta$ condition.\\
+	Indeed, observe that $|f(x, y) - f(0, 0)| = \left|\sqrt{x^2 + y^2}\right|$ for $y \neq 0$ and $|f(x, y) - f(0, 0)| = 0$ for $y = 0.$\\
+	Thus, in general, we have that $|f(x, y) - f(0, 0)| \le \left|\sqrt{x^2 + y^2}\right|.$ \\
+	Let $\delta := \epsilon$ and call it a day.\\~\\
+	%
+	For a unit vector $\textbf{u} := (u_1, u_2)$ and $t \neq 0,$
+	\[\frac{f\left(0+t u_{1}, 0+t u_{2}\right)-f(0,0)}{t} = \left\{
+		\begin{array}{c c}
+			0 & u_2 = 0\\
+			\frac{u_2}{|u_2|} & u_2 \neq 0
+		\end{array}
+	\right.\]
+	Hence, $\left(\mathbf{D_u} f\right)(0,0)$ exists for all $\textbf{u}.$ Thus, all directional derivatives exist.\\~\\
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 5}
+	\emph{If} $f$ is differentiable, then the total derivative \emph{must} be $(f_x(0, 0), f_y(0, 0)) = (0, 0).$ Let us now see whether this does indeed satisfy the condition for being the total derivative. For that, we must check whether
+	\[\lim _{(h, k) \rightarrow(0,0)} \frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}}=0.\]
+	For $(h,k) \neq (0,0),$ we have it that
+	\[\frac{f\left(0+h, 0+k\right)-f\left(0, 0\right)-0 h-0 k}{\sqrt{h^{2}+k^{2}}} = \frac{k}{|k|}.\]
+	It is clear that the limit of the above expression as $(h, k) \to (0, 0)$ does not exist. Hence, $f$ is not differentiable at $(0, 0).$
+\end{frame}
+
+\begin{frame}{References}
+    Lecture Slides by Prof. Ravi Raghunathan for MA 109 (Autumn 2020) \\
+    Tutorial slides prepared by Aryaman Maithani for MA 105 (Autumn 2019) \\
+    Solutions to tutorial problems for MA 105 (Autumn 2019) \\
+\end{frame}
+
+\end{document}
