@@ -1,0 +1,173 @@
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>{}
+\usepackage[utf8]{inputenc}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\title{MA 109 : Calculus-I\\ D1 T4, Tutorial 6}
+\author{Devansh Jain}
+\date[30-12-2020]{30th December 2020}
+\institute[IITB]{IIT Bombay}
+\usetheme{Warsaw}
+\usecolortheme{beetle}
+\newtheorem{defn}{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Questions to be Discussed}
+    \center\textbf{Start the Recording!} \\~\\
+    \begin{itemize}
+        \item Sheet 6
+            \begin{itemize}
+                \item 2 - Directional Derivative in $\R^2$
+                \item 4 - Directional Derivative in $\R^3$
+                \item 5 - Mixed Partial Derivative
+                \item 8 - Maxima, Minima and Saddle Points
+                \item 9 - Absolute Maximum and Minimum
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+    2. $f(x,y)=x^2+sin(xy)$ \\
+    First, as $f_x = 2x + y \cos(xy)$ and $f_y = x \cos(xy)$ are continuous, we note that $f(x,y)$ is differentiable at the point $(1,0)$. \\
+    This implies that, for a unit vector $\mathbf{u}$, we have $D_{\mathbf{\underline{u}}} f(1,0)= ((\nabla f)(1,0)) \cdot \mathbf{u}$. \\ 
+    We have to find a u = $(u_1, u_2)$ so that $D_{\mathbf{\underline{u}}} f(1,0) = 1 $. \\
+    Plugging in x=1 and y=0 in $f_x$ and $f_y$ , we get that $(\nabla f)(1,0)=(2,1)$ \\
+    Thus, we want $(2,1) \cdot (u_1, u_2) = 1$, that is $2u_1 + u_2 = 1 \implies 2u_1 = 1 - u_2$. \\
+    As $\mathbf{u}$ is a unit vector, we also have $u_1^2+u_2^2=1$ \\
+    $2u_1=1-u_2 \implies 4u_1^2=u_2^2-2u_2+1 \implies 4-4u_2^2=u_2^2-2u_2+1 \implies 5u_2^2-2u_2-3=0$ \\
+    $\implies u_2=1$ or $u_2=\frac{-3}{5}.$ \\
+    The corresponding unit vectors are u=$(0,1)$ and u=$(4/5, -3/5)$ \\
+    Indeed we see that u $=(0,1)$ and u $=(4/5, -3/5)$ do imply $D_{\mathbf{\underline{u}}} f(1,0) = 1 $. \\
+    Thus, these are the only directions where directional derivative takes the value 1. \\
+    Basically we have proved that $D_{\mathbf{\underline{u}}} f(1,0) = 1 \iff $ u $=(0,1)$ and u $=(4/5, -3/5)$.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	4. It is not too tough to show that the direction of the normal to a sphere at a point on the sphere is the same as the direction of the vector joining the center to that point. \\
+	Indeed, we get that $(\nabla S)(x_0, y_0, z_0) = 2(x_0, y_0, z_0),$ where $S(x, y, z) := x^2 + y^2 + z^2$ for $(x, y, z) \in \mathbb{R}^3.$ \\
+	Thus, the required $\mathbf{u}$ is $\frac{1}{3}(2, 2, 1).$ \\
+	Hence,
+	\begin{equation*}
+	    (\mathbf{D_\underline{u}}F)(2, 2, 1) = \lim_{t\to 0}\frac{3(2t/3) - 5(2t/3) + 2(t/3)}{t} = -\frac{2}{3}.
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	5. We shall assume that $z$ is a ``sufficiently smooth'' function of $x$ and $y.$ \\
+	We are given that $\sin (x+y)+\sin (y+z)=1$ and $\cos (y+z) \neq 0.$ \\ 
+	Differentiating with respect to $x$ while keeping $y$ constant gives us $\cos (x+y)+\cos (y+z) \frac{\partial z}{\partial x}=0.$ \hfill $(*)$ \\~\\
+	Similarly, differentiating with respect to $y$ while keeping $x$ constant gives us $\cos (x+y)+\cos (y+z)\left(1+\frac{\partial z}{\partial y}\right)=0.$ \hfill $(**)$ \\~\\
+	Differentiating $(*)$ with respect to $y$ gives us $-\sin (x+y) - \sin (y+z) \left( 1 + \frac{\partial z}{\partial y} \right) \frac{\partial z}{\partial x} + \cos (y+z) \frac{\partial^{2} z}{\partial x \partial y} = 0.$
+	\footnote{Note that I have implicitly assumed that $\frac{\partial^2z}{\partial x\partial y} = \frac{\partial^2z}{\partial y\partial x}.$ However, using a different set of calculations, one can arrive at the same answer without assuming this. I encourage you to try that.}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	Thus, using $(*)$ and $(**),$ we get
+	\begin{equation*}
+	    \begin{aligned}
+	        \frac{\partial^{2} z}{\partial x \partial y}
+	            &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z) \cdot\left(1+\frac{\partial z}{\partial y}\right) \frac{\partial z}{\partial x}\right] \\~\\
+	            &=\frac{1}{\cos (y+z)}\left[\sin (x+y)+\sin (y+z)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\left(-\frac{\cos (x+y)}{\cos (y+z)}\right)\right] \\~\\
+	            &=\frac{\sin (x+y)}{\cos (y+z)}+\tan (y+z) \frac{\cos ^{2}(x+y)}{\cos ^{2}(y+z)} 
+	    \end{aligned}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	8. (i) $f(x, y)=\left(x^{2}-y^{2}\right) e^{-\left(x^{2}+y^{2}\right) / 2}.$ \\
+	Note that the above function is defined on $D = \mathbb{R}^2.$ \\
+	Thus, every point is an interior point of $D.$ Moreover, it can be seen that the partial derivatives of all orders exist and are continuous everywhere. \\
+	For $(x_0, y_0)$ to be a point of extrema or a saddle point, it must be the case that $(\nabla f)(x_0, y_0) = (0, 0).$ \\~\\
+	Note that $f_x(x, y) =x e^{1 / 2\left(-x^{2}-y^{2}\right)}\left(-x^{2}+y^{2}+2\right).$ \\
+	Also, $f_y(x, y) =y e^{1 / 2\left(-x^{2}-y^{2}\right)}\left(-x^{2}+y^{2}-2\right).$ \\~\\
+	Thus, solving $(\nabla f)(x_0, y_0) = (0, 0)$ gives us that $(x_0, y_0) \in \{(0, 0),\;(0, \sqrt{2}),\;(0, -\sqrt{2}),\;(-\sqrt{2},0),\;(\sqrt{2}, 0)\}.$ \\
+	Now, we determine the exact nature using the determinant test.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	Recall that $(\Delta f)\left(x_{0}, y_{0}\right):=f_{x x}\left(x_{0}, y_{0}\right) f_{y y}\left(x_{0}, y_{0}\right)-f_{x y}\left(x_{0}, y_{0}\right)^{2}.$ \\
+	Hence, in our case,
+	\begin{equation*}
+	    (\Delta f)(x, y) = -e^{-x^{2}-y^{2}} \left(x^{6}-x^{4} y^{2}-3 x^{4}-x^{2} y^{4}+22 x^{2} y^{2}-8 x^{2}+y^{6}-3 y^{4}-8 y^{2}+4\right)
+	\end{equation*}
+	Moreover, $f_{xx}(x, y) = e^{-\left(x^{2}+y^{2}\right) / 2}(x^4 - x^2y^2 - 5x^2 + y^2 + 2)$ \\
+	For $(x_0, y_0) = (0, 0),$ it is clear that it is a saddle point for $f$ as discriminant is $-4 < 0.$ \\~\\
+	Note that if $x = 0,$ the discriminant reduces to $-e^{-y^2}(y^6 - 3y^4 -8y^2 + 4).$ \\
+	Substituting $y = \pm\sqrt{2}$ gives us that the discriminant is positive with $f_{xx}$ positive and hence, the points are points of local minima. \\~\\
+	Similarly, we get that the points $(\pm\sqrt{2}, 0)$ are points of local maxima as they have discriminant positive and $f_{xx}$ negative. 
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	8. (ii) $f(x, y)=f(x, y)=x^{3}-3 x y^{2}.$ \\
+	Note that the above function is defined on $D = \mathbb{R}^2.$ \\
+	Thus, every point is an interior point of $D.$ Moreover, it can be seen that the partial derivatives of all orders exist and are continuous everywhere. \\
+	For $(x_0, y_0)$ to be a point of extrema or a saddle point, it must be the case that $(\nabla f)(x_0, y_0) = (0, 0).$ \\~\\
+	Note that $f_x(x, y) = 3x^2 - 3y^2.$ \\
+	Also, $f_y(x, y) = -6xy.$ \\~\\
+	Thus, solving $(\nabla f)(x_0, y_0) = (0, 0)$ gives us that $(x_0, y_0) = (0, 0).$ \\
+	Now, we determine the exact nature using the determinant test.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	Recall that $(\Delta f)\left(x_{0}, y_{0}\right):=f_{x x}\left(x_{0}, y_{0}\right) f_{y y}\left(x_{0}, y_{0}\right)-f_{x y}\left(x_{0}, y_{0}\right)^{2}.$\\
+	Hence, in our case,
+	\[(\Delta f)(x_0, y_0) = -36(x_0^2 + y_0^2).\] 
+	Thus, for $(x_0, y_0) = (0, 0),$ we get the discriminant is $0.$ \\
+	Hence, we get that the discriminant test is { inconclusive!} \\
+	This means that we must turn to some other analytic methods of determining the nature. \\~\\
+	Now, we note that $f(\delta, 0) = \delta^3$ for all $\delta \in \mathbb{R}.$ \\
+	Thus, given any $\epsilon > 0,$ choose $\delta = \pm \epsilon/2.$ \\
+	This gives us that $(0, 0)$ is saddle point.
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	9. To find: Absolute maxima and minima of $f(x, y)=\left(x^{2}-4 x\right) \cos y \text { for } 1 \leq x \leq 3,-\pi / 4 \leq y \leq \pi / 4.$\\
+	Note that the domain is a closed and bounded set. As $f$ is continuous on the domain, $f$ does achieve a maximum and a minimum.
+	 Note that $f_x(x, y) = (2 x-4) \cos y$ and $f_y(x, y) = -\left(x^{2}-4 x\right) \sin y$ for interior points $(x, y).$ \\
+	Thus, the only critical point is $p_1 = (2, 0).$ \\~\\
+	Now we restrict ourselves to the boundaries to find the local extrema. \\
+	``Right boundary:'' This is the line segment $x = 3, -\pi / 4 \leq y \leq \pi / 4.$ \\
+	The function now reduces to $-3\cos y$ on this segment. \\
+	Using our theory from one-variable calculus, we get that we need to check the points $(3, 0),\;(3, \pi/4),\;(3, -\pi/4).$ \\~\\
+	Similar consideration of the ``left boundary'' gives us the points $(1, 0),\;(1, \pi/4),\;(1, -\pi/4).$
+\end{frame}
+
+\begin{frame}{Tutorial Sheet 6}
+	Now, we look at the ``top boundary.''\\
+	The function there reduces to $\frac{x^2 - 4x}{\sqrt{2}}.$ \\
+	Once again, using our theory from one-variable calculus, we get that we need to check the points $(1, \pi/4),\;(2, \pi/4),\;(3, \pi/4).$ \\~\\
+	Similarly, checking the ``bottom boundary'' gives us the points $(1, -\pi/4),\;(2, -\pi/4),\;(3, -\pi/4).$ \\
+	We now tabulate our results as follows:
+	\begin{equation*}
+	    \begin{array}{|c||c|c|c|c|c|}
+        	\hline
+        	(x_0, y_0) & (2, 0) & (3, 0) & (3, \pi/4) & (2, \pi/4) & (1, \pi/4) \\
+        	\hline
+        	f(x_0, y_0) & -4 & -3 & \dfrac{-3}{\sqrt{2}} & \dfrac{-4}{\sqrt{2}} & \dfrac{-3}{\sqrt{2}} \\
+        	\hline
+        	\hline
+        	(x_0, y_0) & (1, 0) & (1, -\pi/4) & (2, -\pi/4) & (3, -\pi/4) &  \\
+        	\hline
+        	f(x_0, y_0) & -3 & \dfrac{-3}{\sqrt{2}} & \dfrac{-4}{\sqrt{2}} & \dfrac{-3}{\sqrt{2}} & \\
+        	\hline 
+    	\end{array}
+	\end{equation*}
+	Thus, we get that $f_{\text{min}} = -4$ at $(2, 0)$ and $f_{max} = -\frac{3}{\sqrt{2}}$ at $(1, \pm \pi/4)$ and $(3, \pm\pi/4).$
+\end{frame}
+
+\begin{frame}{References}
+    Lecture Slides by Prof. Ravi Raghunathan for MA 109 (Autumn 2020) \\
+    Tutorial slides prepared by Aryaman Maithani for MA 105 (Autumn 2019) \\
+    Solutions to tutorial problems for MA 105 (Autumn 2019) \\
+\end{frame}
+
+\end{document}
